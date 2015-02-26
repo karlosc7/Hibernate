@@ -59,5 +59,4 @@ public class Answer implements java.io.Serializable {
 	public void setIsCorrect(Boolean isCorrect) {
 		this.isCorrect = isCorrect;
 	}
-
 }

@@ -1,7 +1,9 @@
 package view;
 
 import java.awt.EventQueue;
+
 import javax.swing.JFrame;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -10,14 +12,13 @@ import java.awt.TextArea;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+@SuppressWarnings("serial")
 public class Window extends JFrame {
 
 	private JFrame frame;
@@ -31,7 +32,7 @@ public class Window extends JFrame {
 	private static final String TEXT_BUTTON_DELETE = "Delete";
 	private static final String TEXT_BUTTON_UPDATE = "Update";
 	private static final String TEXT_BUTTON_CLEAN = "Clean";
-	private static final String TITLE = "Hibernate Quizit";
+	private static final String TITLE = "Hibernate DataBase";
 	private static final String MANAGER_TAB = "Question Manager";
 
 	private static final int WITH = 500;
@@ -48,7 +49,7 @@ public class Window extends JFrame {
 	private JButton btnUpdateQuestion;
 	private JButton btnCleanQuestion;
 
-	public Window() {
+	public void Ventana() {
 		// NOTE: to reduce the amount of code in this example, it uses
 		// panels with a NULL layout. This is NOT suitable for
 		// production code since it may not display correctly for
@@ -76,6 +77,7 @@ public class Window extends JFrame {
 		topPanel.add(tabbedPane, BorderLayout.CENTER);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void createPage1() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -171,12 +173,15 @@ public class Window extends JFrame {
 		panel3.add(new TextArea());
 	}
 
+	@SuppressWarnings("rawtypes")
 	private JComboBox category;
 
+	@SuppressWarnings("rawtypes")
 	public JComboBox getCategory() {
 		return category;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void setCategory(JComboBox category) {
 		this.category = category;
 	}
