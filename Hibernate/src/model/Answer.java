@@ -12,7 +12,6 @@ public class Answer implements java.io.Serializable {
 	private Question question;
 	private String text;
 	private Boolean isCorrect;
-
 	public Answer() {
 	}
 

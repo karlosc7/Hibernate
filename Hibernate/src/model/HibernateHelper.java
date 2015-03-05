@@ -1,9 +1,6 @@
-package controlerproject;
+package model;
 
 import java.util.HashSet;
-
-import model.Answer;
-import model.Question;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -69,15 +66,22 @@ public class HibernateHelper {
 		if (question == null)
 			return new Question();
 
-		HashSet<Answer> answers = new HashSet<Answer>(0);
-		for (Answer a : Answer.getAnswers())
-			((java.util.Set<Answer>) answers).add(a);
-
+		Set<Answer> answers = new HashSet<Answer>(0);
+		for(Answer a: question.getAnswers())
+			answers.add(a);
+		
 		session.close();
 
-		question.setAnswers((java.util.Set) answers);
-
+		question.setAnswers(answers);
+		
 		return question;
+	}
+
+	public void addQuestion(byte id, String text, String category, Set<Answer> answers ){
+				
+		Question question = new Question(id,text,category,answers);	
+		saveQuestion(question);
+		
 	}
 
 	public void saveQuestion(Question question) {
