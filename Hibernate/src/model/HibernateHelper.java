@@ -57,7 +57,6 @@ public class HibernateHelper {
 
 	}
 
-	@SuppressWarnings("rawtypes")
 	public Question getQuestion(byte id) {
 		Session session = sesion.openSession();
 
@@ -66,22 +65,24 @@ public class HibernateHelper {
 		if (question == null)
 			return new Question();
 
-		Set<Answer> answers = new HashSet<Answer>(0);
-		for(Answer a: question.getAnswers())
-			answers.add(a);
-		
+		HashSet<Answer> answers = new HashSet<Answer>(0);
+		// for (Answer a : question.getAnswers())
+		// answers.add(a);
+
 		session.close();
 
 		question.setAnswers(answers);
-		
+
 		return question;
 	}
 
-	public void addQuestion(byte id, String text, String category, Set<Answer> answers ){
-				
-		Question question = new Question(id,text,category,answers);	
+	public void addQuestion(byte id, String text, String category, Set answers) {
+
+		@SuppressWarnings("rawtypes")
+		Question question = new Question(id, text, category,
+				(java.util.Set) answers);
 		saveQuestion(question);
-		
+
 	}
 
 	public void saveQuestion(Question question) {

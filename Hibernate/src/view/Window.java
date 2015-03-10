@@ -21,8 +21,6 @@ import javax.swing.border.EmptyBorder;
 @SuppressWarnings("serial")
 public class Window extends JFrame {
 
-	private JFrame frame;
-
 	private JTabbedPane tabbedPane;
 	private JPanel panel1;
 	private JPanel panel2;
@@ -32,7 +30,7 @@ public class Window extends JFrame {
 	private static final String TEXT_BUTTON_DELETE = "Delete";
 	private static final String TEXT_BUTTON_UPDATE = "Update";
 	private static final String TEXT_BUTTON_CLEAN = "Clean";
-	private static final String TITLE = "Hibernate DataBase";
+	private static final String TITLE = "Hibernate Quizit";
 	private static final String MANAGER_TAB = "Question Manager";
 
 	private static final int WITH = 500;
@@ -49,7 +47,7 @@ public class Window extends JFrame {
 	private JButton btnUpdateQuestion;
 	private JButton btnCleanQuestion;
 
-	public void Ventana() {
+	public Window() {
 		// NOTE: to reduce the amount of code in this example, it uses
 		// panels with a NULL layout. This is NOT suitable for
 		// production code since it may not display correctly for
@@ -181,8 +179,7 @@ public class Window extends JFrame {
 		return category;
 	}
 
-	@SuppressWarnings("rawtypes")
-	public void setCategory(JComboBox category) {
+	public void setCategory(@SuppressWarnings("rawtypes") JComboBox category) {
 		this.category = category;
 	}
 
@@ -233,34 +230,4 @@ public class Window extends JFrame {
 	public void settAnswer4(JTextField tAnswer4) {
 		this.tAnswer4 = tAnswer4;
 	}
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Window window = new Window();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
-	public Window() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-
 }
